@@ -1,0 +1,121 @@
+# ===================================================================
+#  zMClans - Manage Member
+#  File: guis/member_manage.yml
+# ===================================================================
+# Placeholders:
+#   {target_name} {target_rank} {target_joined} {target_status} {target_uuid}
+#   {target_kills} {target_deaths} {target_kdr}
+# ===================================================================
+
+member_manage:
+  title: "&8Manage {target_name}"
+  rows: 3
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-9
+        - 11
+        - 15
+        - 17-26
+
+    MEMBER_HEAD:
+      material: playerhead
+      slot: 13
+      display-name: "&fMember &8→ &#31A3FF{target_name}"
+      lore:
+        - ""
+        - " &8• &fRank: &#FFC107{target_rank} ★"
+        - " &8• &fJoined: &#FDBE5B{target_joined} ⌛"
+        - " &8• &fStatus: {target_status}"
+        - " &8• &fK/D: &#55FFAA{target_kills}&8/&#FF6D00{target_deaths}"
+        - " &8• &fMember KDR: &#55FFAA{target_kdr}"
+        - ""
+        - " &8| &fUse the buttons beside this item"
+        - " &8| &fto manage them."
+        - ""
+
+    PROMOTE:
+      material: EMERALD
+      slot: 10
+      glow: true
+      display-name: "&fAction &8→ &#00C853Promote"
+      lore:
+        - ""
+        - " &8| &fMove this member up to"
+        - " &8| &fthe next rank."
+        - ""
+        - "&#00C853✔ &nClick to promote!"
+      action: MEMBER_PROMOTE
+      require-rank-permission: PROMOTE
+
+    KICK:
+      material: TNT
+      slot: 12
+      display-name: "&fAction &8→ &#FF1744Kick"
+      lore:
+        - ""
+        - " &8| &fRemove this member from the clan."
+        - " &8| &fRequires confirmation."
+        - ""
+        - "&#FF1744⚠ &nClick to kick!"
+      action: MEMBER_KICK
+      require-rank-permission: KICK
+
+    TRANSFER_LEADER:
+      material: GOLDEN_HELMET
+      slot: 14
+      glow: true
+      item-flags:
+        - HIDE_ATTRIBUTES
+      display-name: "&fAction &8→ &#FFC107Transfer Leadership"
+      lore:
+        - ""
+        - " &8| &fHand over clan ownership"
+        - " &8| &fto this member."
+        - " &8| &fRequires confirmation."
+        - ""
+        - "&#FFC107⚠ &nClick to transfer!"
+      action: MEMBER_TRANSFER_LEADER
+      require-rank-permission: TRANSFER_LEADER
+
+    DEMOTE:
+      material: REDSTONE
+      slot: 16
+      glow: true
+      display-name: "&fAction &8→ &#FF6D00Demote"
+      lore:
+        - ""
+        - " &8| &fMove this member down to"
+        - " &8| &fthe previous rank."
+        - ""
+        - "&#FF6D00✔ &nClick to demote!"
+      action: MEMBER_DEMOTE
+      require-rank-permission: PROMOTE
+
+    BACK:
+      material: ARROW
+      slot: 18
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fmembers menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: OPEN_GUI:clan_members
+
+    CLOSE:
+      material: IRON_DOOR
+      slot: 26
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE

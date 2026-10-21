@@ -1,0 +1,104 @@
+# ===================================================================
+#  zMClans - Clan Members
+#  File: guis/members.yml
+# ===================================================================
+clan_members:
+  title: "&8{tag} Members"
+  rows: 5
+  page-size: 21
+  page-slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35
+        - 36-44
+
+    MEMBER_ENTRY:
+      material: playerhead:{uuid}
+      display-name: "&fMember &8→ {rank_color}{player}"
+      lore:
+        - ""
+        - " &8• &fRank: {rank_color}{rank} ★"
+        - " &8• &fStatus: &f{online}"
+        - " &8• &fJoined: &#FDBE5B{joined} ⌛"
+        - " &8• &fK/D: &#55FFAA{kills}&8/&#FF6D00{deaths}"
+        - " &8• &fMember KDR: &#55FFAA{kdr}"
+        - ""
+        - "&#31A3FF✔ &nClick to manage!"
+      action: OPEN_MEMBER_MANAGE:{uuid}
+
+    PREV_PAGE:
+      material: ARROW
+      slot: 36
+      display-name: "&fNavigation &8→ &#31A3FFPrevious"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fprevious page."
+        - ""
+        - "&#31A3FF✔ &nClick to go back!"
+      action: PAGE_PREV
+
+    BACK:
+      material: ARROW
+      slot: 37
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fprevious menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: BACK_PREVIOUS
+
+    INVITE:
+      material: LIME_DYE
+      slot: 38
+      display-name: "&fClan &8→ &#00C853Invite"
+      lore:
+        - ""
+        - " &8| &fInvite an online player"
+        - " &8| &fto your clan."
+        - ""
+        - "&#00C853✔ &nClick to invite!"
+      action: OPEN_GUI:clan_invite
+      require-rank-permission: INVITE
+
+    PAGE_INFO:
+      material: PAPER
+      slot: 40
+      display-name: "&fPage &8→ &#FFEA00{page}&8/&#FFEA00{max_pages}"
+      lore:
+        - ""
+        - " &8• &fTotal members: &#C7FF78{total_items} 👥"
+        - ""
+      action: NONE
+
+    CLOSE:
+      material: IRON_DOOR
+      slot: 42
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE
+
+    NEXT_PAGE:
+      material: ARROW
+      slot: 43
+      display-name: "&fNavigation &8→ &#31A3FFNext"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fnext page."
+        - ""
+        - "&#31A3FF✔ &nClick to advance!"
+      action: PAGE_NEXT

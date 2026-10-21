@@ -1,0 +1,59 @@
+# ===================================================================
+#  zMClans - Generic Confirmation
+#  File: guis/confirm.yml
+# ===================================================================
+# Used for: disband, transfer leadership, kick, leave...
+# Placeholders: {action} = action key, {action_description} = description
+# ===================================================================
+
+confirm:
+  title: "&8Confirm &8→ &#FF4825{action_description}"
+  rows: 3
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-10
+        - 12
+        - 14
+        - 16-26
+
+    CONFIRM:
+      material: LIME_CONCRETE
+      slot: 11
+      glow: true
+      display-name: "&fAction &8→ &#90FF21Confirm"
+      lore:
+        - ""
+        - " &8| &fProceed with this"
+        - " &8| &faction."
+        - ""
+        - "&#90FF21✔ &nClick to confirm!"
+      action: CONFIRM
+
+    INFO:
+      material: PAPER
+      slot: 13
+      display-name: "&fConfirm &8→ &#FFEA00{action_description}"
+      lore:
+        - ""
+        - " &8| &fThis action may be"
+        - " &8| &firreversible."
+        - ""
+        - "&#FF2121⚠ &nThink carefully!"
+      action: NONE
+
+    CANCEL:
+      material: RED_CONCRETE
+      slot: 15
+      display-name: "&fAction &8→ &#FF2121Cancel"
+      lore:
+        - ""
+        - " &8| &fCancel this action"
+        - " &8| &fand go back."
+        - ""
+        - "&#FF2121✖ &nClick to cancel!"
+      action: CANCEL

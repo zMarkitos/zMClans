@@ -1,0 +1,106 @@
+# ===================================================================
+#  zMClans - Clan List / Leaderboard
+#  File: guis/clanlist.yml
+# ===================================================================
+
+clan_list:
+  title: "&8Clan Leaderboard"
+  rows: 5
+  page-size: 21
+  page-slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35
+        - 36-44
+
+    CLAN_ENTRY:
+      material: SHIELD
+      display-name: "&fClan &8→ &#31A3FF{clan} &8[&f{tag}&8]"
+      lore:
+        - ""
+        - " &8• &fRank: &#FFE345#{position} ★"
+        - " &8• &fLeader: &#C7FF78{leader} 👤"
+        - " &8• &fMembers: &#00E5FF{members}&8/&#00E5FF{max} 👥"
+        - " &8• &fPoints: &#FFE345{points} ★"
+        - " &8• &fKills: &#55FFAA{kills} ⚔"
+        - " &8• &fClan KDR: &#55FFAA{clan_kdr}"
+        - " &8• &fDeaths: &#FF6D00{deaths} ☠"
+        - ""
+        - "&#31A3FF✔ &nClick for details!"
+      action: OPEN_CLAN_INFO:{clan_id}
+
+    PREV_PAGE:
+      material: ARROW
+      slot: 36
+      display-name: "&fNavigation &8→ &#31A3FFPrevious"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fprevious page."
+        - ""
+        - "&#31A3FF✔ &nClick to go back!"
+      action: PAGE_PREV
+
+    BACK:
+      material: ARROW
+      slot: 39
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fprevious page."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: BACK_PREVIOUS
+
+    PAGE_INFO:
+      material: PAPER
+      slot: 40
+      display-name: "&fPage &8→ &#FFEA00{page}&8/&#FFEA00{max_pages}"
+      lore:
+        - ""
+        - " &8• &fTotal clans: &#C7FF78{total_items} 🛡"
+        - ""
+      action: NONE
+
+    TOP_FILTER:
+      material: HOPPER
+      slot: 41
+      display-name: "&fLeaderboard &8→ &#55FFAA{leaderboard_mode}"
+      lore:
+        - ""
+        - " &8| &fCycle the ranking by members,"
+        - " &8| &fpoints, kills, KDR and deaths."
+        - ""
+        - "&#55FFAA✔ &nClick to change!"
+      action: TOP_TOGGLE
+
+    CLOSE:
+      material: IRON_DOOR
+      slot: 42
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE
+
+    NEXT_PAGE:
+      material: ARROW
+      slot: 43
+      display-name: "&fNavigation &8→ &#31A3FFNext"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fnext page."
+        - ""
+        - "&#31A3FF✔ &nClick to advance!"
+      action: PAGE_NEXT

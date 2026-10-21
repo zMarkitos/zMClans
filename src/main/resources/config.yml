@@ -1,0 +1,152 @@
+# ===================================================================
+#  zMClans - Main Configuration
+#  Modern, Optimized, Secure & Highly Configurable Clan Plugin
+# ===================================================================
+
+# Do not modify
+config-version: 1
+
+# Supported languages: EN (English), ES (Spanish)
+language: "EN"
+
+# ===================================================================
+# CLAN SETTINGS
+# ===================================================================
+clan:
+  # Clan name validation rules
+  name:
+    min-length: 3
+    max-length: 20
+    # Only ASCII letters, numbers, spaces, underscores and dashes are allowed
+    allowed-pattern: "^[a-zA-Z0-9 _-]+$"
+    # Reserved names are matched case-insensitively. Use [] to disable the blacklist.
+    blacklist:
+      - "admin"
+      - "administrator"
+      - "owner"
+      - "staff"
+      - "moderator"
+      - "mod"
+      - "support"
+      - "help"
+      - "console"
+      - "server"
+      - "system"
+
+  # Clan tag validation rules (used in chat and placeholders)
+  tag:
+    min-length: 2
+    max-length: 12
+    # Regular expression for visible tag characters (alphanumeric; formatting is ignored)
+    allowed-pattern: "^[a-zA-Z0-9]+$"
+    # Block legacy format codes and their MiniMessage equivalents (k = obfuscated, m = strikethrough)
+    blocked-format-codes:
+      - "k"
+      - "m"
+
+  # Cost required to create a clan.
+  # Requires Vault and a compatible economy plugin. Set to 0.0 to make it free.
+  creation-cost: 500.0
+
+  # Default friendly fire state for newly created clans
+  friendly-fire: false
+
+# ===================================================================
+# INVITATION SETTINGS
+# ===================================================================
+invitations:
+  # Expiration timeout for pending clan invitations in seconds (0 = never expires)
+  expire-seconds: 120
+
+  # Prevent inviting a player who already belongs to another clan
+  block-if-in-clan: true
+
+# ===================================================================
+# CLAN HOME & TELEPORTATION
+# ===================================================================
+home:
+  # Maximum named homes per clan (including default).
+  max-homes: 5
+  # Cooldown between /clan home uses in seconds (0 = disabled)
+  # Players with 'zmclans.clan.bypass.cooldown' bypass this limit
+  teleport-cooldown: 5
+
+  # Warmup delay before teleporting in seconds (0 = instant teleport)
+  teleport-warmup: 3
+
+  # Cancel warmup teleport if player moves before the warmup finishes
+  cancel-on-move: true
+
+# ===================================================================
+# CLAN CHAT FORMATTING
+# ===================================================================
+chat:
+  # Format for clan chat messages. Supports hex (&#RRGGBB) and standard colors (&a, &e, etc.)
+  # Available placeholders: {clan}, {tag}, {rank}, {rank_prefix}, {player}, {message}
+  format: "{tag} &8| &7{rank_prefix}{player} &8⏩ &f{message}"
+
+# ===================================================================
+# LEADERBOARD CACHE
+# ===================================================================
+leaderboard:
+  # Cache lifetime for clan ranking queries, in seconds (minimum 1).
+  # The GUI filter selects members, points, kills, KDR, or deaths.
+  refresh-interval: 300
+
+# ===================================================================
+# STORAGE & DATABASE
+# ===================================================================
+storage:
+  # Database backend to use: SQLITE or MYSQL
+  type: "SQLITE"
+
+  # Automatic dirty-state save interval in minutes
+  auto-save-interval: 5
+
+  # SQLite database configuration
+  sqlite:
+    # Database file location relative to plugin folder
+    file: "database/clans.db"
+
+  # MySQL database configuration
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "zmclans"
+    username: "root"
+    password: "password"
+    # HikariCP connection pool size
+    pool-size: 10
+    # Security options
+    useSSL: false
+    allowPublicKeyRetrieval: true
+
+# ===================================================================
+# ECONOMY HOOK (Vault)
+# ===================================================================
+economy:
+  enabled: true
+  # Operators are charged by default. Set true to let zmclans.clan.bypass.cost skip fees.
+  allow-cost-bypass: false
+  # VAULT uses a registered Vault economy provider; CUSTOM uses PlaceholderAPI + console commands.
+  # Set to NONE to disable paid clan creation.
+  mode: "VAULT"
+  currency-format: "$%.2f"
+  custom:
+    # Must resolve to a plain numeric balance, e.g. %mycurrency_balance%.
+    balance-placeholder: "%vault_eco_balance%"
+    # Commands are dispatched as console. Supported placeholders: {player}, {amount}.
+    take-command: "eco take {player} {amount}"
+    give-command: "eco give {player} {amount}"
+
+# Output used by relational PlaceholderAPI placeholders (e.g. %rel_zmclans_relation_relcolor%).
+# Keep these values short; they are text only and are not parsed as commands.
+relations:
+  ally:
+    text: "&d"
+  rival:
+    text: "&c"
+  neutral:
+    text: "&7"
+  sameclan:
+    text: "&a"

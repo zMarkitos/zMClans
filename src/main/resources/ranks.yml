@@ -1,0 +1,78 @@
+# ===================================================================
+#  zMClans - Ranks Configuration
+#  Define clan ranks from lowest to highest priority.
+#  priority: higher number = higher rank
+# ===================================================================
+
+ranks:
+  # ---- Default ranks (admin can rename/remove/add) ---------------
+  member:
+    display-name: "Member"
+    color: "&#A7A7A7"
+    prefix: "&#A7A7A7&lMEMBER &#A7A7A7"
+    priority: 1
+    permissions:
+      USE_HOME: true
+      USE_CHAT: true
+      INVITE: false
+      KICK: false
+      PROMOTE: false
+      SET_HOME: false
+      EDIT_DESCRIPTION: false
+      EDIT_SETTINGS: false
+      TRANSFER_LEADER: false
+      MODTAG: false
+
+  officer:
+    display-name: "Officer"
+    color: "&#2569FF"
+    prefix: "&#2569FF&lOFFICER &#2569FF"
+    priority: 2
+    permissions:
+      USE_HOME: true
+      USE_CHAT: true
+      INVITE: true
+      KICK: false
+      PROMOTE: false
+      SET_HOME: false
+      EDIT_DESCRIPTION: false
+      EDIT_SETTINGS: false
+      TRANSFER_LEADER: false
+      MODTAG: false
+
+  admin:
+    display-name: "Admin"
+    color: "&#FFF021"
+    prefix: "&#FFF021&lADMIN &#FFF021"
+    priority: 3
+    permissions:
+      USE_HOME: true
+      USE_CHAT: true
+      INVITE: true
+      KICK: true
+      PROMOTE: true
+      SET_HOME: true
+      EDIT_DESCRIPTION: true
+      EDIT_SETTINGS: false
+      TRANSFER_LEADER: false
+      MODTAG: true
+
+  leader:
+    display-name: "Leader"
+    color: "&#FF0808"
+    prefix: "&#FF0808&lLEADER &#FF0808"
+    priority: 4
+    # The leader rank is protected — only 1 per clan
+    is-leader: true
+    permissions:
+      USE_HOME: true
+      USE_CHAT: true
+      INVITE: true
+      KICK: true
+      PROMOTE: true
+      SET_HOME: true
+      EDIT_DESCRIPTION: true
+      EDIT_SETTINGS: true
+      TRANSFER_LEADER: true
+      DISBAND: true
+      MODTAG: true

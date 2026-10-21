@@ -1,0 +1,173 @@
+name: zMClans
+version: '${project.version}'
+main: dev.zm.clan.zMClans
+api-version: '1.20'
+description: Configurable clan plugin with GUI menus, rank system, multiple homes, private chat, and statistics for Paper/Purpur 1.20+
+author: zMarkitos_
+
+commands:
+  clan:
+    description: Main clan command
+    usage: /clan [subcommand]
+    aliases: [c, clans]
+  zmclan:
+    description: Admin clan command
+    usage: /zmclan [subcommand]
+    aliases: [zmclans, clanadmin]
+
+permissions:
+  zmclan.player:
+    description: Parent node for player-facing zMClans permissions
+    default: false
+    children:
+      zmclan.player.menu: true
+      zmclan.player.create: true
+      zmclan.player.invite: true
+      zmclan.player.invites: true
+      zmclan.player.accept: true
+      zmclan.player.deny: true
+      zmclan.player.join: true
+      zmclan.player.members: true
+      zmclan.player.settings: true
+      zmclan.player.info: true
+      zmclan.player.list: true
+      zmclan.player.relations: true
+      zmclan.player.kick: true
+      zmclan.player.leave: true
+      zmclan.player.disband: true
+      zmclan.player.rank: true
+      zmclan.player.home: true
+      zmclan.player.homes: true
+      zmclan.player.sethome: true
+      zmclan.player.delhome: true
+      zmclan.player.chat: true
+      zmclan.player.description: true
+      zmclan.player.modtag: true
+      zmclan.player.help: true
+  zmclan.player.menu:
+    description: Open the main clan menu
+    default: false
+  zmclan.player.create:
+    description: Create a clan
+    default: false
+  zmclan.player.invite:
+    description: Invite players to a clan
+    default: false
+  zmclan.player.invites:
+    description: View received clan invitations
+    default: false
+  zmclan.player.accept:
+    description: Accept clan invitations
+    default: false
+  zmclan.player.deny:
+    description: Deny clan invitations
+    default: false
+  zmclan.player.join:
+    description: Join clans that allow public joining
+    default: false
+  zmclan.player.members:
+    description: View and manage clan members
+    default: false
+  zmclan.player.settings:
+    description: View and change clan settings
+    default: false
+  zmclan.player.info:
+    description: View clan information
+    default: false
+  zmclan.player.list:
+    description: Browse the clan list
+    default: false
+  zmclan.player.relations:
+    description: Manage clan allies and rivals
+    default: false
+  zmclan.player.kick:
+    description: Kick clan members
+    default: false
+  zmclan.player.leave:
+    description: Leave a clan
+    default: false
+  zmclan.player.disband:
+    description: Disband your clan
+    default: false
+  zmclan.player.rank:
+    description: Change clan member ranks or transfer leadership
+    default: false
+  zmclan.player.home:
+    description: Teleport to clan homes
+    default: false
+  zmclan.player.homes:
+    description: View clan homes
+    default: false
+  zmclan.player.sethome:
+    description: Set clan homes
+    default: false
+  zmclan.player.delhome:
+    description: Delete clan homes
+    default: false
+  zmclan.player.chat:
+    description: Use clan chat
+    default: false
+  zmclan.player.description:
+    description: Edit the clan description
+    default: false
+  zmclan.player.modtag:
+    description: Modify the clan tag
+    default: false
+  zmclan.player.help:
+    description: View clan command help
+    default: false
+  zmclans.admin:
+    description: Parent permission for all administrative commands
+    default: op
+    children:
+      zmclans.admin.help: true
+      zmclans.admin.reload: true
+      zmclans.admin.disband: true
+      zmclans.admin.setleader: true
+      zmclans.admin.points: true
+      zmclans.admin.info: true
+      zmclans.admin.list: true
+      zmclans.admin.members: true
+      zmclans.admin.console: true
+  zmclans.admin.help:
+    description: View administrative command help
+    default: false
+  zmclans.admin.reload:
+    description: Reload plugin configuration and data
+    default: false
+  zmclans.admin.disband:
+    description: Disband any clan administratively
+    default: false
+  zmclans.admin.setleader:
+    description: Transfer clan leadership administratively
+    default: false
+  zmclans.admin.points:
+    description: Change clan points administratively
+    default: false
+  zmclans.admin.info:
+    description: View clan administration details
+    default: false
+  zmclans.admin.list:
+    description: List clans administratively
+    default: false
+  zmclans.admin.members:
+    description: View clan members administratively
+    default: false
+  zmclans.admin.console:
+    description: Run console-command actions configured in plugin menus
+    default: false
+  zmclans.clan.bypass.cooldown:
+    description: Bypass teleport cooldown
+    default: op
+  zmclans.clan.bypass.cost:
+    description: Bypass creation cost
+    default: op
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - org.xerial:sqlite-jdbc:3.45.3.0
+  - com.mysql:mysql-connector-j:8.3.0

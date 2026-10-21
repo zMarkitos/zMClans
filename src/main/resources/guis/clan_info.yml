@@ -1,0 +1,152 @@
+# ===================================================================
+#  zMClans - Clan Information
+#  File: guis/clan_info.yml
+# ===================================================================
+# Placeholders:
+#   {clan} {tag} {clan_id} {leader} {leader_status} {members} {max}
+#   {capacity_percent} {points} {ranking} {total_clans} {created_at}
+#   {description} {friendly_fire_status} {friendly_fire_desc}
+#   {open_invite_status} {open_invite_desc} {home_location}
+#   {home_action_line}
+# ===================================================================
+
+clan_info:
+  title: "&8Clan Information: {clan}"
+  rows: 6
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35,36
+        - 44-53
+
+    CLAN_BADGE:
+      material: SHIELD
+      slot: 4
+      glow: true
+      display-name: "&fClan &8→ &#31A3FF{clan}"
+      lore:
+        - ""
+        - " &8• &fLeader: &#C7FF78{leader} 👤"
+        - " &8• &fCreated: &#FDBE5B{created_at} ⌛"
+        - " &8• &fTag: &#9E64FF{tag}&r&#9E64FF ☄"
+        - " &8• &fDescription: &#C6C6C6{description}"
+        - ""
+        - " &8• &fRank: &#FFE345#{ranking} &8of &#FFE345{total_clans} &fclans ★"
+        - ""
+      action: NONE
+
+    FRIENDLY_FIRE:
+      material: IRON_SWORD
+      slot: 20
+      item-flags:
+        - HIDE_ATTRIBUTES
+      display-name: "&fSetting &8→ &#FF1744PvP"
+      lore:
+        - ""
+        - " &8• &fStatus: {friendly_fire_status}"
+        - " &8• &fMember damage: {friendly_fire_desc}"
+        - ""
+      action: NONE
+
+    INVITATIONS:
+      material: WRITABLE_BOOK
+      slot: 21
+      display-name: "&fSetting &8→ &#FFEA00Invitations"
+      lore:
+        - ""
+        - " &8• &fOpen invitations: {open_invite_status}"
+        - " &8• &fAnyone can invite: {open_invite_desc}"
+        - ""
+      action: NONE
+
+    LEADER:
+      material: playerhead:{leader}
+      slot: 22
+      glow: true
+      display-name: "&fLeader &8→ &#C7FF78{leader}"
+      lore:
+        - ""
+        - " &8• &fRank: &#FFC107Clan leader ★"
+        - " &8• &fStatus: {leader_status}"
+        - ""
+      action: NONE
+
+    MEMBERS:
+      material: playerhead:ZephyHosting
+      slot: 23
+      display-name: "&fClan &8→ &#00E5FFMembers &8(&f{members}&8/&f{max}&8)"
+      lore:
+        - ""
+        - " &8• &fMembers: &#00E5FF{members}&8/&#00E5FF{max} 👥"
+        - " &8• &fCapacity: &#FFE345{capacity_percent}%"
+        - ""
+        - "&#00E5FF✔ &nClick to view members!"
+      action: OPEN_CLAN_MEMBERS:{clan_id}
+
+    POINTS:
+      material: NETHER_STAR
+      slot: 24
+      glow: true
+      display-name: "&fClan &8→ &#FF6D00Points & Leaderboard"
+      lore:
+        - ""
+        - " &8• &fPoints: &#FFE345{points} ★"
+        - " &8• &fPosition: &#45D2FF#{ranking} &8of &#45D2FF{total_clans}"
+        - ""
+        - "&#FF6D00✔ &nClick to view rankings!"
+      action: OPEN_CLANS
+
+    COMBAT_STATS:
+      material: IRON_SWORD
+      slot: 32
+      item-flags:
+        - HIDE_ATTRIBUTES
+      display-name: "&fClan &8→ &#FF7043Combat Stats"
+      lore:
+        - ""
+        - " &8• &fKills: &#55FFAA{kills} ⚔"
+        - " &8• &fDeaths: &#FF6D00{deaths} ☠"
+        - " &8• &fClan KDR: &#55FFAA{clan_kdr}"
+        - " &8• &fLevel: &#45D2FF{level} ★"
+        - ""
+      action: NONE
+
+    HOME:
+      material: RED_BED
+      slot: 31
+      display-name: "&fClan &8→ &#FF4081Homes"
+      lore:
+        - ""
+        - " &8• &fCoordinates: &#43FF67{home_location}"
+        - ""
+        - "{home_action_line}"
+      action: OPEN_HOMES
+
+    BACK:
+      material: ARROW
+      slot: 45
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fprevious menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: BACK_PREVIOUS
+
+    CLOSE:
+      material: IRON_DOOR
+      slot: 53
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE

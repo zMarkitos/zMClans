@@ -1,0 +1,159 @@
+# ===================================================================
+#  zMClans - Clan Settings
+#  File: guis/settings.yml
+# ===================================================================
+
+clan_settings:
+  title: "&8{tag} Settings"
+  rows: 6
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35,36,44
+        - 45-53
+
+    FRIENDLY_FIRE:
+      material: DIAMOND_SWORD
+      slot: 20
+      item-flags:
+        - HIDE_ATTRIBUTES
+      display-name: "&fSetting &8→ &#FF1744Friendly Fire"
+      lore:
+        - ""
+        - " &8| &fAllow PvP between"
+        - " &8| &fclan members."
+        - ""
+        - " &8• &fStatus: {friendly_fire_status}"
+        - ""
+        - "&#FF1744✔ &nClick to change!"
+      action: TOGGLE_SETTING:friendly_fire
+      require-rank-permission: EDIT_SETTINGS
+
+    OPEN_INVITATIONS:
+      material: PAPER
+      slot: 21
+      display-name: "&fSetting &8→ &#FFEA00Open Invitations"
+      lore:
+        - ""
+        - " &8| &fAllow any member"
+        - " &8| &fto send invitations."
+        - ""
+        - " &8• &fStatus: {open_invite_status}"
+        - ""
+        - "&#FFEA00✔ &nClick to change!"
+      action: TOGGLE_SETTING:open_invitations
+      require-rank-permission: EDIT_SETTINGS
+
+    DESCRIPTION:
+      material: WRITABLE_BOOK
+      slot: 22
+      display-name: "&fSetting &8→ &#00E5FFDescription"
+      lore:
+        - ""
+        - " &8• &fCurrent: &#C6C6C6{description}"
+        - ""
+        - "&#00E5FF✔ &nClick to edit!"
+      action: EDIT_DESCRIPTION
+      require-rank-permission: EDIT_DESCRIPTION
+
+    EDIT_TAG:
+      material: CHEST
+      slot: 23
+      display-name: "&fSetting &8→ &#9E64FFChange Tag"
+      lore:
+        - ""
+        - " &8| &fEdit the visible clan tag."
+        - " &8| &fUse /clan modtag <tag>."
+        - ""
+        - "&#9E64FF✔ &nClick to edit!"
+      action: EDIT_TAG
+      require-rank-permission: MODTAG
+
+    ALLY_HOMES:
+      material: RED_BED
+      slot: 24
+      display-name: "&fSetting &8→ &#55FFAAShared Homes"
+      lore:
+        - ""
+        - " &8| &fLet your allies visit"
+        - " &8| &fyour clan homes."
+        - ""
+        - " &8• &fStatus: {ally_homes_status}"
+        - ""
+        - "&#55FFAA✔ &nClick to change!"
+      action: TOGGLE_SETTING:ally_homes
+      require-rank-permission: EDIT_SETTINGS
+
+    ALLY_CHAT:
+      material: WRITABLE_BOOK
+      slot: 30
+      display-name: "&fSetting &8→ &#B388FFAlly Chat"
+      lore:
+        - ""
+        - " &8| &fAllow allies in clan chat"
+        - " &8| &fto read your messages."
+        - ""
+        - " &8• &fStatus: {ally_chat_status}"
+        - ""
+        - "&#B388FF✔ &nClick to change!"
+      action: TOGGLE_SETTING:ally_chat
+      require-rank-permission: EDIT_SETTINGS
+
+    ALLY_PVP:
+      material: IRON_SWORD
+      slot: 31
+      display-name: "&fSetting &8→ &#FF7043Ally PvP"
+      lore:
+        - ""
+        - " &8| &fPvP is only allowed if"
+        - " &8| &fboth clans enable it."
+        - ""
+        - " &8• &fStatus: {ally_pvp_status}"
+        - ""
+        - "&#FF7043✔ &nClick to change!"
+      action: TOGGLE_SETTING:ally_pvp
+      require-rank-permission: EDIT_SETTINGS
+
+    PUBLIC_JOIN:
+      material: OAK_DOOR
+      slot: 32
+      display-name: "&fSetting &8→ &#00E5FFOpen Clan"
+      lore:
+        - ""
+        - " &8| &fIf open, players can"
+        - " &8| &fjoin with /clan join."
+        - ""
+        - " &8• &fStatus: {public_join_status}"
+        - ""
+        - "&#00E5FF✔ &nClick to change!"
+      action: TOGGLE_SETTING:public_join
+      require-rank-permission: EDIT_SETTINGS
+
+    BACK:
+      material: ARROW
+      slot: 45
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fclan main menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: OPEN_GUI:clan_main
+
+    CLOSE:
+      material: IRON_DOOR
+      slot: 53
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE

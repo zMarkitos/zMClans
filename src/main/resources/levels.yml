@@ -1,0 +1,49 @@
+# zMClans clan progression
+# Levels are derived from clan points. Clan points never become negative.
+# Formula: required_points = base_points * (level ^ exponent)
+progression:
+  enabled: true
+  start-level: 1
+  max-level: 50
+  base-points: 100
+  exponent: 1.65
+  points:
+    create-clan: 25
+    join-member: 10
+    kill: 5
+    # Signed deltas: negative values remove points. Example: kill: -2 or death: -3.
+    death: -1
+    promote-member: 2
+    demote-member: 0
+
+  # Limits use the closest configured level at or below the clan's current level.
+  # Homes, allies and rivals have independent limits per clan.
+  level-limits:
+    1:
+      members: 10
+      homes: 2
+      allies: 1
+      rivals: 1
+    2:
+      members: 15
+      homes: 3
+      allies: 2
+      rivals: 2
+    3:
+      members: 20
+      homes: 4
+      allies: 3
+      rivals: 3
+    5:
+      members: 30
+      homes: 5
+      allies: 5
+      rivals: 5
+  rewards:
+    # Rewards are intentionally informational until a safe, explicit reward executor is configured.
+    5:
+      name: "Veteran Clan"
+      description: "Your clan has proven its activity."
+    10:
+      name: "Elite Clan"
+      description: "A recognized and experienced clan."

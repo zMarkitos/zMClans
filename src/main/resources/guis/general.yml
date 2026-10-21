@@ -1,0 +1,446 @@
+# ===================================================================
+#  zMClans - Main Menu
+#  File: guis/general.yml
+# ===================================================================
+
+# ---- No-clan menu -----------------------------------------------
+clan_start:
+  title: "&8No clan? Create one"
+  rows: 5
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 36-44
+
+    HELP:
+      material: BOOK
+      slot: 4
+      display-name: "&fCommands &8→ &#31A3FFHelp"
+      lore:
+        - ""
+        - " &8| &fLearn how to use all"
+        - " &8| &fclan commands."
+        - ""
+        - "&#31A3FF✔ &nClick to view!"
+      action: SHOW_HELP
+
+    CREATE:
+      material: EMERALD
+      slot: 20
+      glow: true
+      display-name: "&fClan &8→ &#00C853Create clan"
+      lore:
+        - ""
+        - " &8| &fFound your own clan"
+        - " &8| &fand gather your allies."
+        - ""
+        - "&8✎ &fInformation"
+        - "   &8• &fCost: &#C7FF78{creation_cost} ⛃"
+        - "   &8• &fMax members: &#00C853{max} 👥"
+        - ""
+        - "&#00C853✔ &nClick to create!"
+      action: CREATE_CLAN
+
+    CLANS:
+      material: COMPASS
+      slot: 22
+      display-name: "&fClan &8→ &#00E5FFBrowse clans"
+      lore:
+        - ""
+        - " &8| &fBrowse clan rankings"
+        - " &8| &fand their positions."
+        - ""
+        - "&#00E5FF✔ &nClick to browse!"
+      action: OPEN_CLANS
+
+    INVITES:
+      material: WRITABLE_BOOK
+      slot: 24
+      glow: true
+      display-name: "&fClan &8→ &#FFEA00Invitations"
+      lore:
+        - ""
+        - " &8| &fReview invitations"
+        - " &8| &fsent to you by other clans."
+        - ""
+        - "&#FFEA00✔ &nClick to view!"
+      action: OPEN_GUI:clan_invites
+
+    CLOSE:
+      material: BARRIER
+      slot: 40
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE
+
+
+# ---- Clan menu (player is already in a clan) ------------------
+clan_main:
+  title: "&8Clan → {clan}"
+  rows: 6
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35,36,44
+        - 45-53
+
+    CLAN_PROFILE:
+      material: WRITABLE_BOOK
+      slot: 4
+      glow: true
+      display-name: "&fYour clan &8→ &#31A3FF{clan} &8[&f{tag}&8]"
+      lore:
+        - ""
+        - " &8• &fLeader: &#C7FF78{leader} 👤"
+        - " &8• &fMembers: &#FFE345{members}&8/&#FFE345{max} 👥 &8(&f{capacity_percent}%&8)"
+        - " &8• &fPoints: &#45D2FF{points} ★ &8| &fRank: &#FFE345#{ranking}"
+        - " &8• &fCreated: &#FDBE5B{created_at} ⌛"
+        - " &8• &fDescription: &#C6C6C6{description}"
+        - ""
+        - " &8• &fFriendly Fire: {friendly_fire_status}"
+        - " &8• &fInvitations: {open_invite_status}"
+        - " &8• &fHomes: &#43FF67{home_location}"
+        - ""
+        - "&#31A3FF✔ &nClick to see more!"
+      action: OPEN_GUI:clan_info
+
+    MEMBERS:
+      material: playerhead
+      slot: 20
+      display-name: "&fClan &8→ &#00E5FFMembers"
+      lore:
+        - ""
+        - " &8| &fView all members,"
+        - " &8| &ftheir ranks and manage them."
+        - ""
+        - "&#00E5FF✔ &nClick to open!"
+      action: OPEN_GUI:clan_members
+
+    INVITE:
+      material: OAK_SIGN
+      slot: 21
+      glow: true
+      display-name: "&fClan &8→ &#00C853Invite Players"
+      lore:
+        - ""
+        - " &8| &fBrowse online players"
+        - " &8| &fand invite them with one click."
+        - ""
+        - "&#00C853✔ &nClick to invite!"
+      action: OPEN_GUI:clan_invite
+      require-rank-permission: INVITE
+
+    HOME:
+      material: RED_BED
+      slot: 22
+      glow: true
+      display-name: "&fClan &8→ &#FF4081Homes"
+      lore:
+        - ""
+        - " &8• &fCurrent: &#43FF67{home_location}"
+        - ""
+        - "&#FF4081✔ &nLeft-click to open clan homes!"
+        - "&#FFEA00✎ &nRight-click to set the default home!"
+      action: CLAN_HOME_OR_SETHOME
+
+    CHAT:
+      material: WRITABLE_BOOK
+      slot: 23
+      display-name: "&fClan &8→ &#B388FFClan Chat"
+      lore:
+        - ""
+        - " &8| &fToggle your clan chat"
+        - " &8| &fon or off."
+        - ""
+        - " &8• &fStatus: {chat_status}"
+        - ""
+        - "&#B388FF✔ &nClick to change!"
+      action: TOGGLE_CHAT
+
+    SETTINGS:
+      material: COMPARATOR
+      slot: 24
+      display-name: "&fClan &8→ &#FFC107Settings"
+      lore:
+        - ""
+        - " &8| &fConfigure friendly fire,"
+        - " &8| &finvitations and more."
+        - ""
+        - "&#FFC107✔ &nClick to configure!"
+      action: OPEN_GUI:clan_settings
+      require-rank-permission: EDIT_SETTINGS
+
+    PROGRESSION:
+      material: EXPERIENCE_BOTTLE
+      slot: 40
+      display-name: "&fClan &8→ &#55FFAALevel {level} Progression"
+      lore:
+        - ""
+        - " &8• &fCurrent points: &#FFE345{points} ★"
+        - " &8• &fPoints to next level: &#45D2FF{level_points_needed} ⚡"
+        - " &8• &fClan KDR: &#55FFAA{clan_kdr}"
+        - ""
+      action: NONE
+
+    ALLIES:
+      material: LIME_BANNER
+      slot: 31
+      display-name: "&fClan &8→ &#D8A7FFAllies &8({allies_count})"
+      lore:
+        - ""
+        - " &8| &fChoose a clan to add as an ally."
+        - " &8| &fAlliance changes are reciprocal."
+        - ""
+        - "&#D8A7FF✔ &nClick to manage!"
+      action: OPEN_GUI:clan_allies
+      require-rank-permission: EDIT_SETTINGS
+
+    RIVALS:
+      material: RED_BANNER
+      slot: 32
+      display-name: "&fClan &8→ &#FF5252Rivals &8({rivals_count})"
+      lore:
+        - ""
+        - " &8| &fChoose a clan to mark as a rival."
+        - " &8| &fRivalry changes are reciprocal."
+        - ""
+        - "&#FF5252✔ &nClick to manage!"
+      action: OPEN_GUI:clan_rivals
+      require-rank-permission: EDIT_SETTINGS
+
+    TOP_CLANS:
+      material: NETHER_STAR
+      slot: 30
+      display-name: "&fClan &8→ &#FF6D00Leaderboard"
+      lore:
+        - ""
+        - " &8| &fView the leaderboard"
+        - " &8| &fof top clans."
+        - ""
+        - "&#FF6D00✔ &nClick to view!"
+      action: OPEN_CLANS
+
+    LEAVE:
+      material: IRON_DOOR
+      slot: 48
+      display-name: "&fClan &8→ &#FF3D00Leave Clan"
+      lore:
+        - ""
+        - " &8| &fLeave this clan."
+        - " &8| &fRequires confirmation."
+        - ""
+        - "&#FF3D00⚠ &nClick to leave!"
+      action: CLAN_LEAVE
+
+    CLOSE:
+      material: BARRIER
+      slot: 49
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE
+
+    DISBAND:
+      material: TNT
+      slot: 50
+      display-name: "&fClan &8→ &#FF1744Disband clan"
+      lore:
+        - ""
+        - " &8| &fPermanently delete"
+        - " &8| &fthe clan. Leader only."
+        - ""
+        - "&#FF1744⚠ &nClick to disband!"
+      action: CLAN_DISBAND
+      require-rank-permission: DISBAND
+
+
+# ---- Clan relation selectors. Clicking a clan creates a mutual relation. ----
+clan_allies:
+  title: "&8Manage Allies"
+  rows: 6
+  page-size: 28
+  page-slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35,36,44
+        - 45-53
+
+    CLAN_ENTRY:
+      material: LIME_BANNER
+      display-name: "&fClan &8→ &#D8A7FF{clan} &8[&f{tag}&8]"
+      lore:
+        - ""
+        - " &8• &fLeader: &#C7FF78{leader} 👤"
+        - " &8• &fMembers: &#FFE345{members} 👥"
+        - ""
+        - "&#D8A7FF✔ &nClick to view info!"
+      action: NONE
+
+    BACK:
+      material: ARROW
+      slot: 45
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fclan menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: OPEN_GUI:clan_main
+
+    PREVIOUS:
+      material: ARROW
+      slot: 48
+      display-name: "&fNavigation &8→ &#31A3FFPrevious"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fprevious page."
+        - ""
+        - "&#31A3FF✔ &nClick to go back!"
+      action: PAGE_PREV
+
+    PAGE_INFO:
+      material: PAPER
+      slot: 49
+      display-name: "&fPage &8→ &#FFEA00{page}&8/&#FFEA00{max_pages}"
+      lore:
+        - ""
+        - " &8• &fTotal clans: &#C7FF78{total_items} 🛡"
+        - ""
+      action: NONE
+
+    NEXT:
+      material: ARROW
+      slot: 50
+      display-name: "&fNavigation &8→ &#31A3FFNext"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fnext page."
+        - ""
+        - "&#31A3FF✔ &nClick to advance!"
+      action: PAGE_NEXT
+
+    CLOSE:
+      material: BARRIER
+      slot: 53
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE
+
+
+clan_rivals:
+  title: "&8Manage Rivals"
+  rows: 6
+  page-size: 28
+  page-slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
+  open-sound: "BLOCK_NOTE_BLOCK_PLING"
+
+  items:
+    FILLER:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      slots:
+        - 0-8
+        - 9,17,18,26,27,35,36,44
+        - 45-53
+
+    CLAN_ENTRY:
+      material: RED_BANNER
+      display-name: "&fClan &8→ &#FF5252{clan} &8[&f{tag}&8]"
+      lore:
+        - ""
+        - " &8• &fLeader: &#C7FF78{leader} 👤"
+        - " &8• &fMembers: &#FFE345{members} 👥"
+        - ""
+        - "&#FF5252✔ &nClick to view info!"
+      action: NONE
+
+    BACK:
+      material: ARROW
+      slot: 45
+      display-name: "&fNavigation &8→ &#E65100Back"
+      lore:
+        - ""
+        - " &8| &fReturn to the"
+        - " &8| &fclan menu."
+        - ""
+        - "&#E65100✔ &nClick to go back!"
+      action: OPEN_GUI:clan_main
+
+    PREVIOUS:
+      material: ARROW
+      slot: 48
+      display-name: "&fNavigation &8→ &#31A3FFPrevious"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fprevious page."
+        - ""
+        - "&#31A3FF✔ &nClick to go back!"
+      action: PAGE_PREV
+
+    PAGE_INFO:
+      material: PAPER
+      slot: 49
+      display-name: "&fPage &8→ &#FFEA00{page}&8/&#FFEA00{max_pages}"
+      lore:
+        - ""
+        - " &8• &fTotal clans: &#C7FF78{total_items} 🛡"
+        - ""
+      action: NONE
+
+    NEXT:
+      material: ARROW
+      slot: 50
+      display-name: "&fNavigation &8→ &#31A3FFNext"
+      lore:
+        - ""
+        - " &8| &fGo to the"
+        - " &8| &fnext page."
+        - ""
+        - "&#31A3FF✔ &nClick to advance!"
+      action: PAGE_NEXT
+
+    CLOSE:
+      material: BARRIER
+      slot: 53
+      display-name: "&fNavigation &8→ &#E65100Close"
+      lore:
+        - ""
+        - " &8| &fClose this menu"
+        - " &8| &fand continue exploring."
+        - ""
+        - "&#E65100✔ &nClick to close!"
+      action: CLOSE

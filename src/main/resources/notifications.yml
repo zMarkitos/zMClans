@@ -1,0 +1,363 @@
+# ===================================================================
+#  zMClans - Notifications (Titles, Actionbars, Sounds)
+#  Customize titles, subtitles, actionbars, and sounds for key clan events.
+#  Sounds use standard Bukkit Sound names. Colors and hex (&#RRGGBB) are supported.
+#  Placeholders: {clan}, {tag}, {player}, {rank}, {home}, etc.
+# ===================================================================
+
+clan-points-earned:
+  title:
+    enabled: true
+    title: "&#55FFAA&lPoints Earned"
+    subtitle: "&f{clan} &7received &e+{gained} points"
+    fade-in: 8
+    stay: 35
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&aClan points: &e+{gained} &8| &7Total: &f{points}"
+  sound:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 0.8
+    pitch: 1.2
+
+clan-levelup:
+  title:
+    enabled: true
+    title: "&#55FFAA&lLevel Up!"
+    subtitle: "&f{clan} &7reached level &b{level}"
+    fade-in: 10
+    stay: 45
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&aClan level &b{level} &8| &e+{gained} points &8| &7Total: &f{points}"
+  sound:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.1
+
+clan-create:
+  title:
+    enabled: true
+    title: "&#55FFAA&lClan Created!"
+    subtitle: "&fYou founded &#31A3FF{clan}"
+    fade-in: 10
+    stay: 50
+    fade-out: 20
+  actionbar:
+    enabled: true
+    text: "&aClan &#55FFAA{clan} &acreated successfully!"
+  sound:
+    enabled: true
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    volume: 1.0
+    pitch: 1.0
+
+clan-disband:
+  title:
+    enabled: true
+    title: "&c&lClan Disbanded"
+    subtitle: "&7{clan} has been deleted"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&cYour clan &e{clan} &cwas disbanded."
+  sound:
+    enabled: true
+    sound: "BLOCK_ANVIL_DESTROY"
+    volume: 1.0
+    pitch: 0.8
+
+member-promote:
+  title:
+    enabled: true
+    title: "&#55FFAA&lPromoted!"
+    subtitle: "&7New rank: &f{rank}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&aYou were promoted to &e{rank}&a!"
+  sound:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.2
+
+member-demote:
+  title:
+    enabled: true
+    title: "&#FF6D00&lDemoted"
+    subtitle: "&7New rank: &f{rank}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&cYou were demoted to &e{rank}&c."
+  sound:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 1.0
+    pitch: 0.8
+
+member-kick:
+  title:
+    enabled: true
+    title: "&c&lExpelled"
+    subtitle: "&7You were kicked from &c{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&cYou were kicked from &e{clan}&c."
+  sound:
+    enabled: true
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+
+member-join:
+  title:
+    enabled: true
+    title: "&#55FFAA&lWelcome!"
+    subtitle: "&fYou joined &#31A3FF{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&aYou joined clan &e{clan}&a!"
+  sound:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+
+member-leave:
+  title:
+    enabled: true
+    title: "&e&lClan Left"
+    subtitle: "&7You left {clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&eYou have left your clan."
+  sound:
+    enabled: true
+    sound: "BLOCK_IRON_DOOR_CLOSE"
+    volume: 1.0
+    pitch: 1.0
+
+transfer-leader:
+  title:
+    enabled: true
+    title: "&#FFC107&lLeadership"
+    subtitle: "&fYou are the new leader of &#55FFAA{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&6Leadership transferred to you in &e{clan}&6!"
+  sound:
+    enabled: true
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    volume: 1.0
+    pitch: 1.0
+
+member-joined:
+  title:
+    enabled: true
+    title: "&#55FFAA&lNew Member"
+    subtitle: "&e{player} &7joined &#31A3FF{clan}"
+    fade-in: 8
+    stay: 35
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&a{player} joined the clan."
+  sound:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 0.7
+    pitch: 1.2
+
+member-left:
+  title:
+    enabled: true
+    title: "&#FFCA55&lMember Departed"
+    subtitle: "&e{player} &7left &#31A3FF{clan}"
+    fade-in: 8
+    stay: 35
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&e{player} left the clan."
+  sound:
+    enabled: false
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 0.7
+    pitch: 0.9
+
+member-kicked:
+  title:
+    enabled: true
+    title: "&#FF6D6D&lMember Removed"
+    subtitle: "&e{player} &7was removed from &#31A3FF{clan}"
+    fade-in: 8
+    stay: 35
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&c{player} was removed from the clan."
+  sound:
+    enabled: false
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 0.7
+    pitch: 0.9
+
+invite-sent:
+  title:
+    enabled: true
+    title: "&#55FFAA&lInvitation Sent"
+    subtitle: "&f{player} &7was invited to &#31A3FF{clan}"
+    fade-in: 8
+    stay: 35
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&aInvitation sent to &e{player}&a."
+  sound:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 0.8
+    pitch: 1.2
+
+invite-received:
+  title:
+    enabled: true
+    title: "&#FFEA00&lClan Invitation"
+    subtitle: "&fInvited by &#31A3FF{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&eYou received an invite from &b{clan}&e!"
+  sound:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_BELL"
+    volume: 1.0
+    pitch: 1.2
+
+invite-accepted:
+  title:
+    enabled: true
+    title: "&#55FFAA&lInvitation Accepted"
+    subtitle: "&e{player} &7joined &#31A3FF{clan}"
+    fade-in: 8
+    stay: 40
+    fade-out: 12
+  actionbar:
+    enabled: true
+    text: "&a{player} accepted your invitation."
+  sound:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 0.8
+    pitch: 1.1
+
+home-teleport:
+  title:
+    enabled: false
+    title: "&#55FFAATeleported"
+    subtitle: "&7Welcome home"
+    fade-in: 5
+    stay: 30
+    fade-out: 10
+  actionbar:
+    enabled: true
+    text: "&aTeleported to clan home &e{home}&a!"
+  sound:
+    enabled: true
+    sound: "ENTITY_ENDERMAN_TELEPORT"
+    volume: 1.0
+    pitch: 1.0
+
+home-set:
+  title:
+    enabled: false
+    title: "&#55FFAAHome Saved"
+    subtitle: "&7{home}"
+    fade-in: 5
+    stay: 30
+    fade-out: 10
+  actionbar:
+    enabled: true
+    text: "&aClan home &e{home} &asaved!"
+  sound:
+    enabled: true
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.5
+
+ally-accepted:
+  title:
+    enabled: true
+    title: "&#D8A7FF&lNew Alliance!"
+    subtitle: "&fAllied with &#55FFAA{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&dAllied with clan &e{clan}&d!"
+  sound:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.5
+
+tag-updated:
+  title:
+    enabled: false
+    title: "&#9E64FFTag Updated"
+    subtitle: "&r{tag}"
+    fade-in: 10
+    stay: 30
+    fade-out: 10
+  actionbar:
+    enabled: true
+    text: "&aClan tag updated to: &r{tag}"
+  sound:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.2
+
+rival-declared:
+  title:
+    enabled: true
+    title: "&#FF6D6D&lNew Rival!"
+    subtitle: "&fYour clan now rivals &c{clan}"
+    fade-in: 10
+    stay: 40
+    fade-out: 15
+  actionbar:
+    enabled: true
+    text: "&cYour clan is now rivals with &e{clan}&c!"
+  sound:
+    enabled: true
+    sound: "ENTITY_WITHER_SPAWN"
+    volume: 0.6
+    pitch: 1.2
